@@ -1,13 +1,14 @@
 README.TXT
 
-E M S C A T T E R  v0.2 -- Initial Release
+E M S C A T T E R  v0.3 -- Initial Release
 
 This is the initial release of this code, "emscatter" 
 
 This program is provided in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. This program 
-makes use of unmodified GPL and (more weakly) publicly licensed software. 
+makes use of unmodified GPL and (more weakly) publicly licensed software, which
+is not included. 
 
 
 0) PREAMBLE     
