@@ -1,0 +1,30 @@
+#Input for Tmatrix scattering code
+################################################
+RunTitle: Prolate_spheroid__b=0.0918881492370__a=2*b
+################################################
+#
+Zshift:                0.0
+Wavelength:            1.000000000000000
+#
+# 
+# Radial integration
+Radius_NumPoints:      100
+Radius_Start:          0.0004
+Radius_End:            0.501
+#
+#
+# Theta  integration
+Theta_NumPoints:       100
+Theta_Start:           0.000000000000000
+Theta_End:             3.141592653589793
+#
+#
+# Phi  integration
+Phi_NumPoints:         24
+Phi_Start:             0.000000000000000
+Phi_End:               6.283185307179586
+#
+#
+Max_L:                 18
+Symmetry:              axial
+#

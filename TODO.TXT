@@ -1,0 +1,61 @@
+
+Many things to do here:
+
+
+Administrative: 
+
+1) Add proper licenses and/or copies to this package to satisfy (if necessary) 
+   GPL and weaker (open source) licensing requirements for when distributing.
+
+
+Code:
+
+1) It is difficult to find results to compare with in the literature, since most 
+   papers report "phase matrix elements" which are further orientationally averaged. We need to figure
+   out how to compute these elements. A good starting point is section 24 of the  DDSCAT 
+   users guide [1], which gives a fair amount of explanation of how to go from T-matrix elements to 
+   non-averaged phase matrix elements. Section 25  describes averaging. Ultimately, we want to compute these phase matrix elements 
+   and also orientational averages.   
+
+2) v0.3 implements only a monochromatic plane wave traveling in the +z direction, linearly polarized along the x-direction,
+   as the incoming source. Allow polarization and direction to be input by the user. 
+
+3) Provide instructions for proper usage of zshift. 
+
+4) Clean up and improve I/O implementation.
+
+5) Implement proper deallocation of objects after T cycle.
+
+6) Report start/end times, timing from various routines. 
+
+7) Capture and report specific exceptions from Eigen linear algebra solve routines.
+
+8) Modify code such that various dielectric structures can be selected at run-time.
+
+
+
+Theory:
+
+1) In the formalism developed by Johnson, he makes a guess as to the value of the free space dyadic greens function evaluated 
+   at r=r', essentially taking the average of the r->r' and r'->r values. The full theory for these Green's functions is given by 
+   Chen-to Tai's book [2], many sections I have read thoroughly. The reason that Tai did not include the r=r' value is that the Green's function
+   is evaluated as a contour integral in the k complex plane, with a standard "great arc" path, but which depends on the damping factor 
+
+   exp(-(r-r')k), in order that the integral vanish on the arc as it goes to infinity. When r=r', there is no damping and the integral 
+   cannot be evaluated this way. I believe there is another method to evaluate the integral 
+   (method to deal with the singular behavior at r=r'). I would then try to check the result by doing a simple problem, like
+   the sphere of constant dielectric, with the Green's function, doing it analytically as far as possible, and comparing with analytical results
+   from the boundary condition method.
+
+
+
+References:
+
+[1] User Guide for the Discrete Dipole Approximation Code DDSCAT 7.2, Bruce Draine and Piotr Flatau.
+    http://arxiv.org/abs/1202.3424
+
+[2] Dyadic Greens Functions in Electromagnetic Theory, 2nd Edition, 1994, Chen-To Tai.
+
+
+
+    

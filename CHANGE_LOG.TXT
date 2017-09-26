@@ -1,0 +1,4 @@
+2014-03-03;  Ashley Alford <john.a.alford at nasa.gov>
+	     
+	     *emscatter:
+	     Initial Release
