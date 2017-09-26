@@ -8,7 +8,7 @@ This program is provided in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. This program 
 makes use of unmodified GPL and (more weakly) publicly licensed software, which
-is not included. 
+is not included here. 
 
 
 0) PREAMBLE     
@@ -43,9 +43,8 @@ The EMSCATTER tarball directory structure is as follows.
 	    .../bin/
 	    .../src/
 	    .../include/
-            .../Eigen/
-            .../boost/
-	    
+            
+               
 	    
 
 1) INSTALLATION
@@ -54,7 +53,7 @@ The EMSCATTER tarball directory structure is as follows.
 There is very little configuration for this initial release. The only adjustments that needed are in the
  simple makefile,  
 
- 	0.3/src/Makefile
+ 	./src/Makefile
 
 
 basically setting the compiler and related flags
@@ -62,8 +61,12 @@ basically setting the compiler and related flags
 	a) C++ compiler :              CPP = /usr/bin/g++ 
 	b) C++ compile flags :         CPPCMPFLAGS = -c -O3
 
+and the location of boost and Eigen headers, e.g.
 
-
+	c) BOOST_INCDIR_        =   -I../boost/
+	d) EIGEN_INCDIR_        =   -I../Eigen/
+	
+	
 
 Run "make" at the prompt
 
@@ -71,10 +74,9 @@ Run "make" at the prompt
 
 
 The code should compile without issue and copy the executable "emscatter" to the directory 
-0.3/bin/. 
+EMSCATTER/bin/. 
 
-The default dielectric structure compiled into the code is a sphere (centered at the origin)
-of radius 0.5 and constant dielectric 2.0 (see below).
+The default dielectric structure compiled into the code is the luneberg lens. 
 
 The code uses "long double" (64 bit) for the real floating point type (as default). This is defined in the "basic_types.hpp" header. 
 
@@ -94,13 +96,14 @@ Before the running the code, one needs to define the dielectric structure and to
     
           epsilon = dielectric(zshift,phi,theta,r)
 
-          All arguments to the dielectric function are inputs. zshift allows one to shift the origin of the scatterer along the
-          z-axis. For this release, please only use 0.0. The shift has been tested, but special instructions are needed for 
+          All arguments to the dielectric function are inputs. zshift allows one to shift the origin of the scatterer
+	  along the z-axis. For this release, please only use 0.0. The shift has been tested, but special instructions are needed for 
           the input file, and those will be provided in the next release. phi, theta, and r are just the spherical coordinates 
 	  of the point in the dielectric to be evaluated. The function returns a complex dielectric value at this point. 
 	  The function should also return ONE (vacuum dielectric) outside the dielectric structure.
 
-          A number of examples for dielectric functions are provided in the ./Examples/ directory.
+          A number of examples for dielectric functions are provided in the ./Examples/ directory. Any of these examples
+	  can be copied to the src directory as dielectric.cpp. We then need to recompile. :(
 
 	
        b) Input file: The name of the input file for the code is "emsc_input.in". Lines beginning with a '#' (comment line)
